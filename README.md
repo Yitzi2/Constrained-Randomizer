@@ -3,7 +3,7 @@ The Constrained_randomizer function (once built) will take a budget and an array
 
 Also to be included in the repository are:
 
-* The Generate_random_distinct utility function 
+* The generate_random_distinct utility function
   
 * A sample.cpp file that contains a main() function allowing the repository contents (.h and .cpp files) to be compiled into a usable program
   
