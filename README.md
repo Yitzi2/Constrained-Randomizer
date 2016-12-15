@@ -3,10 +3,10 @@ The Constrained_randomizer function (once built) will take a budget and an array
 
 Also to be included in the repository are:
 
-*The Generate_random_distinct utility function 
+* The Generate_random_distinct utility function 
   
-*A sample.cpp file that contains a main() function allowing the repository contents (.h and .cpp files) to be compiled into a usable program
+* A sample.cpp file that contains a main() function allowing the repository contents (.h and .cpp files) to be compiled into a usable program
   
-*A performance.md file estimating the algorithm's performance under various input conditions
+* A performance.md file estimating the algorithm's performance under various input conditions
 
 This function is based on work I originally did for my unofficial patch to the game Sid Meier's Alpha Centauri.
