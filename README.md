@@ -9,4 +9,4 @@ Also to be included in the repository are:
   
 * A performance.md file estimating the algorithm's performance under various input conditions
 
-This function is based on work I originally did for my unofficial patch to the game Sid Meier's Alpha Centauri.
+This function is based on work I originally did for my unofficial patch to the game Sid Meier's Alpha Centauri; more information about said patch can be found at http://alphacentauri2.info/wiki/Yitzi's_patch (external link).
