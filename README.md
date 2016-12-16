@@ -8,3 +8,5 @@ Also to be included in the repository are:
 * A performance.md file estimating the algorithm's performance under various input conditions
 
 This function is based on work I originally did for my unofficial patch to the game Sid Meier's Alpha Centauri; more information about said patch can be found at http://alphacentauri2.info/wiki/Yitzi's_patch (external link).
+
+It is also worth noting that, while the function yields a random solution, a maximal solution (i.e. one such that adding any item would exceed the constraint) can be achieved by calling the function on all but the lowest-cost item, and then using the remaining budget on as many of the lowest-cost item as possible.
