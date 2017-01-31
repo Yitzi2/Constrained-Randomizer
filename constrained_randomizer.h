@@ -12,6 +12,7 @@
 #include <algorithm>
 #include <numeric>
 #include <functional>
+#include <random>
 
 /*T should be an integral type or a class that represents an integer (in particular, it should behave normally under arithmetic 
   operations, and for any valid value x, there should be no valid values between x and x+1).  less<T> should be defined, and 
