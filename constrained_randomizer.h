@@ -22,7 +22,7 @@
   true, the lower bound should be closed, and the upper bound open.  In either case, distribution should be callable with
   an argument of type URNG, yielding a result of type T (or a type implicitly convertible to it).*/
 
-<template class URNG, bool half_open_dist = false, typename T, class distribution = uniform_int_distribution<T>>
+<template class distribution = uniform_int_distribution<T>, bool half_open_dist = false, class URNG, typename T>
 void constrained_randomizer (T budget, const std::vector<T>& costs, std::vector<T>& output, URNG g);
 
 //*************************************Implementation portion begins here***************************************
@@ -37,7 +37,7 @@ void constrained_randomizer (T budget, const std::vector<T>& costs, std::vector<
   approach is then used to eliminate solutions that exceed the actual budget.  Each potential output derives from a set of
   Prod differences between adjacent values, where Prod is the product of all the costs.*/
 
-<template class URNG, bool half_open_dist = false, typename T, class distribution = uniform_int_distribution<T>>
+<template class distribution = uniform_int_distribution<T>, bool half_open_dist = false, class URNG, typename T>
 void constrained_randomizer (T budget, const std::vector<T>& costs, std::vector<T>& output, URNG g) {
     int n = costs.size;
     if (output.size != n) throw std::invalid_argument("Input and output vectors must be the same size.");
