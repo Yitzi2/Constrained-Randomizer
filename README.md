@@ -3,7 +3,7 @@ This project is based on work I originally did for my unofficial patch to the ga
 
 The Constrained_randomizer function takes a budget and an array of costs for various items, and randomly selects a number of each item such that the total remains under budget.  (This therefore bears a superficial resemblance to the unbounded knapsack problem, but differs in that the task being performed is not one of optimization, but rather randomization.)  The random selection is unbiased: Each valid possibility has equal likelihood (within the limitations of the underlying random number generator).
 
-Also to be included in the repository are:
+Also included/to be included in the repository are:
 
 * A sample.cpp file that contains a main() function allowing the repository contents (.h and .cpp files) to be compiled into a usable program
   
