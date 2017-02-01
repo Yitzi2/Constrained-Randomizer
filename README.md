@@ -7,6 +7,6 @@ Also included/to be included in the repository are:
 
 * A sample.cpp file that contains a main() function allowing the repository contents (.h and .cpp files) to be compiled into a usable program
   
-* A performance.md file estimating the algorithm's performance under various input conditions
+* A performance.md file estimating some features of the algorithm's performance under various input conditions
 
 It is also worth noting that, while the function yields a random solution, a maximal solution (i.e. one such that adding any item would exceed the constraint) can be achieved by calling the function on all but the lowest-cost item, and then using the remaining budget to determine the quantity of this last item.
