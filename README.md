@@ -1,5 +1,5 @@
 # Constrained-Randomizer
-This project is based on work I originally did for my unofficial patch to the game Sid Meier's Alpha Centauri.  (More information about said patch can be found at http://alphacentauri2.info/wiki/Yitzi's_patch (external link).)
+This project is based on work I originally did for my unofficial patch to the game Sid Meier's Alpha Centauri.  (More information about said patch can be found at http://alphacentauri2.info/wiki/Yitzi's_patch (external link).)  The original was therefore written in assembly language; it has been translated to C++, and modified to allow for broader usage.
 
 The Constrained_randomizer function takes a budget and an array of costs for various items, and randomly selects a number of each item such that the total remains under budget.  (This therefore bears a superficial resemblance to the unbounded knapsack problem, but differs in that the task being performed is not one of optimization, but rather randomization.)  The random selection is unbiased: Each valid possibility has equal likelihood (within the limitations of the underlying random number generator).
 
