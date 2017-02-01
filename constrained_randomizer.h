@@ -15,15 +15,15 @@
 #include <random>
 
 /*T should be an integral type or a class that represents an integer (in particular, it should behave normally under arithmetic 
-  operations, and for any valid value x, there should be no valid values between x and x+1).  less<T> should be defined, and 
-  interact with arithmetic as expected.
+  operations, and for any valid value x, there should be no valid values between x and x+1).  less<T> and divides<T> should be 
+  defined, with the usual meanings.
   
   If half_open_dist is false, the distribution parameter should have an interface similar to the uniform_int_distribution class: 
   It should be constructed with closed lower and upper bounds as arguments, and called with no arguments.  If half_open_RNG is 
   true, the lower bound should be closed, and the upper bound open.  In either case, distribution should be callable with
   an argument of type URNG, yielding a result of type T (or a type implicitly convertible to it).*/
 
-<template class URNG, typename T, class distribution = uniform_int_distribution<T>, bool half_open_dist = false>
+template <class URNG, typename T, class distribution = std::uniform_int_distribution<T>, bool half_open_dist = false>
 void constrained_randomizer (T budget, const std::vector<T>& costs, std::vector<T>& output, URNG g);
 
 //*************************************Implementation portion begins here***************************************
@@ -38,19 +38,19 @@ void constrained_randomizer (T budget, const std::vector<T>& costs, std::vector<
   approach is then used to eliminate solutions that exceed the actual budget.  Each potential output derives from a set of
   Prod differences between adjacent values, where Prod is the product of all the costs.*/
 
-<template class URNG, typename T, class distribution = uniform_int_distribution<T>, bool half_open_dist = false>
+template <class URNG, typename T, class distribution = std::uniform_int_distribution<T>, bool half_open_dist = false>
 void constrained_randomizer (T budget, const std::vector<T>& costs, std::vector<T>& output, URNG g) {
     int n = costs.size;
     if (output.size != n) throw std::invalid_argument("Input and output vectors must be the same size.");
     if (budget <= 0) throw std::invalid_argument("All input values must be strictly positive.");
     T budget_used; // will be initialized in a do…while loop later.
     T expanded_budget = budget;
-    for (i = 0; i < n; ++i) {
+    for (int i = 0; i < n; ++i) {
         T cost = costs[i];
         if (cost <= 0) throw std::invalid_argument("All input values must be strictly positive.");
         expanded_budget += cost;
     }
-    distribution dist(1, expanded_budget + half_open_RNG);
+    distribution dist(1, expanded_budget + half_open_dist);
     do {
         std::set<T> distinct_randoms;
         while (distinct_randoms.size < n) {
@@ -60,7 +60,7 @@ void constrained_randomizer (T budget, const std::vector<T>& costs, std::vector<
         std::adjacent_difference (distinct_randoms.begin(), distinct_randoms.end(), differences.begin());
         std::transform(differences.begin(), differences.end(), differences.begin(), 
             [](T x) -> T { return --x;});
-        std::transform(differences.begin(), differences.end(), costs.begin(), output.begin(), std::divides);
+        std::transform(differences.begin(), differences.end(), costs.begin(), output.begin(), std::divides<T>());
         budget_used = std::inner_product(differences.begin(), differences.end(), output.begin(), 0);
     }
     while (budget_used > budget);
