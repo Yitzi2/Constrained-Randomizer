@@ -40,8 +40,8 @@ void constrained_randomizer (T budget, const std::vector<T>& costs, std::vector<
 
 template <class URNG, typename T, class distribution = std::uniform_int_distribution<T>, bool half_open_dist = false>
 void constrained_randomizer (T budget, const std::vector<T>& costs, std::vector<T>& output, URNG g) {
-    int n = costs.size;
-    if (output.size != n) throw std::invalid_argument("Input and output vectors must be the same size.");
+    int n = costs.size();
+    if (output.size() != n) throw std::invalid_argument("Input and output vectors must be the same size.");
     if (budget <= 0) throw std::invalid_argument("All input values must be strictly positive.");
     T budget_used; // will be initialized in a do…while loop later.
     T expanded_budget = budget;
@@ -53,7 +53,7 @@ void constrained_randomizer (T budget, const std::vector<T>& costs, std::vector<
     distribution dist(1, expanded_budget + half_open_dist);
     do {
         std::set<T> distinct_randoms;
-        while (distinct_randoms.size < n) {
+        while (distinct_randoms.size() < n) {
             distinct_randoms.insert(dist(g));
         }
         std::vector<T> differences(n);
