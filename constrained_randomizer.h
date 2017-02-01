@@ -1,4 +1,4 @@
-/*This function takes a budget, an array of strictly positive costs, and a random number generator, generates an unbiased 
+/*This function, once debugged, will take a budget, an array of strictly positive costs, and a random number generator, generates an unbiased 
  random selection from among the valid arrangements of items (with validity defined as in the unbounded knapsack problem; in 
   particular, any item can occur multiple times).  The results are output to the output argument, which should have the same  
   size as the costs argument.*/
