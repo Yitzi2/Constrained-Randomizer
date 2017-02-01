@@ -1,5 +1,5 @@
-/*This function, once debugged, will take a budget, an array of strictly positive costs, and a random number generator, generates an unbiased 
- random selection from among the valid arrangements of items (with validity defined as in the unbounded knapsack problem; in 
+/*This function takes a budget, an array of strictly positive costs, and a random number generator, and generates an unbiased 
+  random selection from among the valid arrangements of items (with validity defined as in the unbounded knapsack problem; in 
   particular, any item can occur multiple times).  The results are output to the output argument, which should have the same  
   size as the costs argument.*/
 
@@ -15,8 +15,8 @@
 #include <random>
 
 /*T should be an integral type or a class that represents an integer (in particular, it should behave normally under arithmetic 
-  operations, and for any valid value x, there should be no valid values between x and x+1).  less<T> and divides<T> should be 
-  defined, with the usual meanings.
+  operations, and there should be no valid values between x and x+1).  less<T> and divides<T> should be defined, with the usual 
+  meanings.
   
   If half_open_dist is false, the distribution parameter should have an interface similar to the uniform_int_distribution class: 
   It should be constructed with closed lower and upper bounds as arguments, and called with no arguments.  If half_open_RNG is 
@@ -61,7 +61,7 @@ void constrained_randomizer (T budget, const std::vector<T>& costs, std::vector<
         std::transform(differences.begin(), differences.end(), differences.begin(), 
             [](T x) -> T { return --x;});
         std::transform(differences.begin(), differences.end(), costs.begin(), output.begin(), std::divides<T>());
-        budget_used = std::inner_product(differences.begin(), differences.end(), output.begin(), 0);
+        budget_used = std::inner_product(costs.begin(), costs.end(), output.begin(), 0);
     }
     while (budget_used > budget);
 }
