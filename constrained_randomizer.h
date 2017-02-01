@@ -36,7 +36,7 @@ void constrained_randomizer (T budget, const std::vector<T>& costs, std::vector<
   
   m is set higher than the given budget due to truncation when dividing each value by the cost; a trial-and-error
   approach is then used to eliminate solutions that exceed the actual budget.  Each potential output derives from a set of
-  Prod differences between adjacent values, where Prod is the product of all the costs.*/
+  Prod possible sets of n distinct random integers, where Prod is the product of all the costs.*/
 
 template <class URNG, typename T, class distribution = std::uniform_int_distribution<T>, bool half_open_dist = false>
 void constrained_randomizer (T budget, const std::vector<T>& costs, std::vector<T>& output, URNG g) {
